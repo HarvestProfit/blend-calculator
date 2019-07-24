@@ -1,7 +1,8 @@
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Input } from 'reactstrap';
+
+import NumberInput from '../shared/NumberInput';
 
 class Product extends Component {
   updateName = (event) => {
@@ -10,22 +11,22 @@ class Product extends Component {
   }
 
   updateNitrogen = (event) => {
-    const nitrogen = _.toNumber(event.target.value);
+    const nitrogen = event.target.value;
     this.updateProduct({ nitrogen });
   }
 
   updatePhosphorous = (event) => {
-    const phosphorous = _.toNumber(event.target.value);
+    const phosphorous = event.target.value;
     this.updateProduct({ phosphorous });
   }
 
   updatePotassium = (event) => {
-    const potassium = _.toNumber(event.target.value);
+    const potassium = event.target.value;
     this.updateProduct({ potassium });
   }
 
   updateSulfur = (event) => {
-    const sulfur = _.toNumber(event.target.value);
+    const sulfur = event.target.value;
     this.updateProduct({ sulfur });
   }
 
@@ -45,23 +46,40 @@ class Product extends Component {
     return (
       <tr>
         <td colSpan="2">
-          <Input value={product.name} onChange={this.updateName} />
+          <Input
+            autoFocus
+            type="text"
+            value={product.name}
+            onChange={this.updateName}
+          />
         </td>
         <td>
-          <Input value={product.nitrogen.toString()} onChange={this.updateNitrogen} />
+          <NumberInput
+            value={product.nitrogen}
+            onChange={this.updateNitrogen}
+          />
         </td>
         <td>
-          <Input value={product.phosphorous.toString()} onChange={this.updatePhosphorous} />
+          <NumberInput
+            value={product.phosphorous}
+            onChange={this.updatePhosphorous}
+          />
         </td>
         <td>
-          <Input value={product.potassium.toString()} onChange={this.updatePotassium} />
+          <NumberInput
+            value={product.potassium}
+            onChange={this.updatePotassium}
+          />
           </td>
         <td>
-          <Input value={product.sulfur.toString()} onChange={this.updateSulfur} />
+          <NumberInput
+            value={product.sulfur.toString()}
+            onChange={this.updateSulfur}
+          />
         </td>
         <td>
           <Button color="danger" onClick={this.removeProduct}>
-            🗑
+            <i className="fas fa-trash"></i>
           </Button>
         </td>
       </tr>

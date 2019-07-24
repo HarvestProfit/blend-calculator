@@ -1,5 +1,7 @@
-import { debouce, select } from 'redux-saga/effects';
+import { debounce, select } from 'redux-saga/effects';
 
+import { UPDATE_PRODUCT } from '../actions/products';
+import { SET_TOTALS } from '../actions/totals';
 import { getProducts } from '../reducers/products';
 import { getProductTotals, getTotals } from '../reducers/totals';
 
@@ -8,5 +10,5 @@ function* calculateTotalProductUsage() {
 }
 
 export default function* calculate() {
-  yield debouce(500, [], calculateTotalProductUsage);
+  yield debounce(500, [UPDATE_PRODUCT, SET_TOTALS], calculateTotalProductUsage);
 }

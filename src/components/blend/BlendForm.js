@@ -1,26 +1,27 @@
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Col, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Col, Form, FormGroup, Label } from 'reactstrap';
+
+import NumberInput from '../shared/NumberInput';
 
 class BlendForm extends Component {
   updateNitrogen = (event) => {
-    const nitrogen = _.toNumber(event.target.value);
+    const nitrogen = event.target.value;
     this.updateTotals({ nitrogen });
   }
 
   updatePhosphorous = (event) => {
-    const phosphorous = _.toNumber(event.target.value);
+    const phosphorous = event.target.value;
     this.updateTotals({ phosphorous });
   }
 
   updatePotassium = (event) => {
-    const potassium = _.toNumber(event.target.value);
+    const potassium = event.target.value;
     this.updateTotals({ potassium });
   }
 
   updateSulfur = (event) => {
-    const sulfur = _.toNumber(event.target.value);
+    const sulfur = event.target.value;
     this.updateTotals({ sulfur });
   }
 
@@ -36,27 +37,27 @@ class BlendForm extends Component {
     return (
       <Form>
         <FormGroup row>
-          <Label for="nitrogen" sm={2}>Nitogen</Label>
-          <Col sm={10}>
-            <Input type="number" name="nitrogen" id="nitrogen" value={totals.nitrogen} onChange={this.updateNitrogen} />
+          <Label className="text-right" for="nitrogen" sm={6}>Nitogen</Label>
+          <Col sm={2} className="mr-auto">
+            <NumberInput name="nitrogen" id="nitrogen" value={totals.nitrogen} onChange={this.updateNitrogen} />
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label for="phosphorous" sm={2}>Phosphorous</Label>
-          <Col sm={10}>
-            <Input type="number" name="phosphorous" id="phosphorous" value={totals.phosphorous} onChange={this.updatePhosphorous} />
+          <Label className="text-right" for="phosphorous" sm={6}>Phosphorous</Label>
+          <Col sm={2} className="mr-auto">
+            <NumberInput name="phosphorous" id="phosphorous" value={totals.phosphorous} onChange={this.updatePhosphorous} />
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label for="potassium" sm={2}>Potassium</Label>
-          <Col sm={10}>
-            <Input type="number" name="potassium" id="potassium" value={totals.potassium} onChange={this.updatePotassium} />
+          <Label className="text-right" for="potassium" sm={6}>Potassium</Label>
+          <Col sm={2} className="mr-auto">
+            <NumberInput name="potassium" id="potassium" value={totals.potassium} onChange={this.updatePotassium} />
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label for="sulfur" sm={2}>Sulfur</Label>
-          <Col sm={10}>
-            <Input type="number" name="sulfur" id="sulfur" value={totals.sulfur} onChange={this.updateSulfur} />
+          <Label className="text-right" for="sulfur" sm={6}>Sulfur</Label>
+          <Col sm={2} className="mr-auto">
+            <NumberInput name="sulfur" id="sulfur" value={totals.sulfur} onChange={this.updateSulfur} />
           </Col>
         </FormGroup>
       </Form>

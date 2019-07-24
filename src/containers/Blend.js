@@ -2,11 +2,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Blend from '../components/Blend';
 
-import { calculateTotals, setTotals } from '../actions/totals';
+import { setTotals } from '../actions/totals';
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    calculateTotals,
     setTotals,
   }, dispatch);
 }

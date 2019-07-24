@@ -10,10 +10,10 @@ export function createProduct() {
     payload: {
       id: _.uniqueId(),
       name: '',
-      nitrogen: 0.00,
-      phosphorous: 0.00,
-      potassium: 0.00,
-      sulfur: 0.00,
+      nitrogen: '0',
+      phosphorous: '0',
+      potassium: '0',
+      sulfur: '0',
     }
   };
 }
