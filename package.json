@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.15",
     "mathjs": "^6.0.3",
     "prop-types": "^15.7.2",
@@ -16,6 +17,8 @@
     "redux-saga": "^1.0.5"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
