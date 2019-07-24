@@ -9,18 +9,15 @@ import { getTotalsAsNumbers } from '../reducers/totals';
 const chemicals = ['nitrogen', 'potassium', 'phosphorous', 'sulfur'];
 
 function productTotalsForAmount(originalProduct, amount, chemical) {
-  const remainingChemicals = chemicals.filter(c => c !== chemical);
   const product = {
     id: originalProduct.id,
     name: originalProduct.name,
     amount,
     [chemical]: amount,
   };
-  for (let index = 0; index < remainingChemicals.length; index += 1) {
-    const chemicalName = remainingChemicals[index];
-    const chemicalUsage = originalProduct[chemicalName] * amount;
-    const originalUsage = originalProduct[chemical];
-    product[chemicalName] = originalUsage > 0 ? chemicalUsage / originalUsage : 0;
+  for (let index = 0; index < chemicals.length; index += 1) {
+    const chemicalName = chemicals[index];
+    product[chemicalName] = (originalProduct[chemicalName] / 100) * amount;
   }
   return product;
 }

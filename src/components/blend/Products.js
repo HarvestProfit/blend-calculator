@@ -6,7 +6,24 @@ import { Table } from 'reactstrap';
 class Products extends Component {
 
   render() {
-    const products = _.sortBy(this.props.product_totals, 'name');
+    const originalProducts = this.props.products;
+    const products = originalProducts.map((p) => {
+      const product = this.props.product_totals.find(productTotal => p.id === productTotal.id);
+      if (!product) {
+        return null;
+      }
+      return (
+        <tr key={product.id}>
+          <td colSpan="2">{product.name}</td>
+          <td colSpan="1">{product.amount.toFixed(2)}</td>
+          <td colSpan="1">{product.nitrogen.toFixed(2)}</td>
+          <td colSpan="1">{product.phosphorous.toFixed(2)}</td>
+          <td colSpan="1">{product.potassium.toFixed(2)}</td>
+          <td colSpan="1">{product.sulfur.toFixed(2)}</td>
+        </tr>
+      )
+    });
+
     return (
       <Table className="mt-5">
         <thead>
@@ -20,16 +37,7 @@ class Products extends Component {
           </tr>
         </thead>
         <tbody>
-          {products.map(product => (
-            <tr key={product.id}>
-              <td colSpan="2">{product.name}</td>
-              <td colSpan="1">{product.amount.toFixed(2)}</td>
-              <td colSpan="1">{product.nitrogen.toFixed(2)}</td>
-              <td colSpan="1">{product.phosphorous.toFixed(2)}</td>
-              <td colSpan="1">{product.potassium.toFixed(2)}</td>
-              <td colSpan="1">{product.sulfur.toFixed(2)}</td>
-            </tr>
-          ))}
+          {products}
         </tbody>
       </Table>
     )
