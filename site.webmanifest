@@ -1,6 +1,6 @@
 {
-    "name": "What If Analysis Demo",
-    "short_name": "What If Demo",
+    "name": "Blend Calculator",
+    "short_name": "Blends",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
