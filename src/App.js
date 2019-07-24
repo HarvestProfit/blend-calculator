@@ -18,6 +18,8 @@ import Products from './containers/Products';
 
 import store from './store';
 
+import whiteLogo from './assets/logo-white-100.png';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,10 +40,17 @@ class App extends Component {
     const activeTab = this.state.tab === 0;
     return (
       <Provider store={store}>
-        <Navbar color="dark" dark>
-          <NavbarBrand href="/">Blend Calculator</NavbarBrand>
-        </Navbar>
-        <Container className="mt-5">
+        <header>
+          <Navbar color="dark" dark>
+            <NavbarBrand href="https://www.harvestprofit.com">
+              <img className="img-fluid" alt="Harvest Profit" src={whiteLogo} height="30" width="30" />
+            </NavbarBrand>
+            <NavbarBrand href="/">
+              Blend Calculator
+            </NavbarBrand>
+          </Navbar>
+        </header>
+        <Container className="my-5">
           <Nav tabs fill>
             <NavItem>
               <NavLink className={activeTab ? 'active' : undefined} onClick={this.openProducts}>
@@ -54,7 +63,7 @@ class App extends Component {
               </NavLink>
             </NavItem>
           </Nav>
-          <TabContent activeTab={this.state.tab} className="mt-5">
+          <TabContent activeTab={this.state.tab} className="my-5">
             <TabPane tabId={0}>
               <Row>
                 <Col>
@@ -71,6 +80,16 @@ class App extends Component {
             </TabPane>
           </TabContent>
         </Container>
+        <footer>
+          <Navbar color="light" light>
+            <span>
+              Made with <i className="fas fa-heart" /> by Harvest Profit
+            </span>
+            <NavbarBrand href="https://github.com/HarvestProfit/blend-calculator">
+              Source Code
+            </NavbarBrand>
+          </Navbar>
+        </footer>
       </Provider>
     );
   }

@@ -15,7 +15,7 @@ const Products = ({ createProduct, updateProduct, deleteProduct, products }) => 
   }
 
   return (
-    <Table>
+    <Table responsive>
       <thead>
         <tr>
           <th colSpan="2">Name</th>
@@ -31,7 +31,7 @@ const Products = ({ createProduct, updateProduct, deleteProduct, products }) => 
           <Product key={index} index={index} product={product} updateProduct={updateProduct} deleteProduct={deleteProduct} />
         ))}
         <tr>
-          <td colSpan="6">
+          <td colSpan="7">
             <Button block color="primary" onClick={createProduct}>Add Product</Button>
           </td>
         </tr>

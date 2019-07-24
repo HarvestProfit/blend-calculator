@@ -25,7 +25,7 @@ class Products extends Component {
     });
 
     return (
-      <Table className="mt-5">
+      <Table responsive className="mt-5">
         <thead>
           <tr>
             <th colSpan="2">Name</th>
