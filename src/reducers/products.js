@@ -5,7 +5,12 @@ import {
   DELETE_PRODUCT,
 } from '../actions/products';
 
-const initialState = [];
+const initialState = [
+  { id: 'default_1', name: 'Urea', nitrogen: '46', phosphorous: '0', potassium: '0', sulfur: '0' },
+  { id: 'default_2', name: 'Map', nitrogen: '11', phosphorous: '52', potassium: '0', sulfur: '0' },
+  { id: 'default_3', name: 'POTASH', nitrogen: '0', phosphorous: '0', potassium: '60', sulfur: '0' },
+  { id: 'default_4', name: 'AMS', nitrogen: '21', phosphorous: '0', potassium: '0', sulfur: '24' },
+];
 
 export function getProducts(state) {
   return state.products;

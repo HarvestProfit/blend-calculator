@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
@@ -5,6 +6,7 @@ import { Table } from 'reactstrap';
 class Products extends Component {
 
   render() {
+    const products = _.sortBy(this.props.product_totals, 'name');
     return (
       <Table className="mt-5">
         <thead>
@@ -18,7 +20,7 @@ class Products extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.product_totals.map(product => (
+          {products.map(product => (
             <tr key={product.id}>
               <td colSpan="2">{product.name}</td>
               <td colSpan="1">{product.amount.toFixed(2)}</td>
