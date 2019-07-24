@@ -13,6 +13,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     products: state.products,
+    product_totals: state.product_totals,
     totals: state.totals,
   };
 }

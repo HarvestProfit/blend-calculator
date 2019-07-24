@@ -13,7 +13,7 @@ class Blend extends Component {
           <h1 className="mb-5 text-center">Add your desired amounts (in <code>lbs</code> or <code>kg</code>)</h1>
           <BlendForm totals={this.props.totals} setTotals={this.props.setTotals} />
         </Jumbotron>
-        <Products totals={this.props.totals} products={this.props.products} />
+        <Products product_totals={this.props.product_totals} products={this.props.products} />
       </div>
     )
   }
@@ -21,6 +21,7 @@ class Blend extends Component {
 
 Blend.propTypes = {
   totals: PropTypes.object.isRequired,
+  product_totals: PropTypes.arrayOf(PropTypes.object),
   setTotals: PropTypes.func.isRequired,
 }
 

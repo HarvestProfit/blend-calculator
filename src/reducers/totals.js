@@ -1,6 +1,6 @@
+import _ from 'lodash';
 import {
   SET_TOTALS,
-  SET_PRODUCT_TOTAL,
 } from '../actions/totals';
 
 const initialState = {
@@ -9,15 +9,20 @@ const initialState = {
   phosphorous: '0',
   potassium: '0',
   sulfur: '0',
-  products: [],
 }
 
 export function getTotals(state) {
   return state.totals;
 }
 
-export function getProductTotals(state) {
-  return state.totals.products;
+export function getTotalsAsNumbers(state) {
+  const totals = getTotals(state);
+  return {
+    nitrogen: _.toNumber(totals.nitrogen),
+    phosphorous: _.toNumber(totals.phosphorous),
+    potassium: _.toNumber(totals.potassium),
+    sulfur: _.toNumber(totals.sulfur),
+  };
 }
 
 export default function reducer(state = initialState, action) {
@@ -27,17 +32,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         ...action.payload,
       }
-    case SET_PRODUCT_TOTAL: {
-      const index = state.products.findIndex(p => p.id === action.payload.id);
-      return {
-        ...state,
-        products: [
-          ...state.products.slice(0, index),
-          action.payload,
-          ...state.products.slice(index + 1),
-        ],
-      };
-    }
     default:
       return state;
   }
