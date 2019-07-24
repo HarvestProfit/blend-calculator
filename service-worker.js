@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/blend-calculator/precache-manifest.7c5baba830fe4081cc105ce45786bb02.js"
+  "/blend-calculator/precache-manifest.5aa3a013e3249bf3ef189e2930e8ba1c.js"
 );
 
 self.addEventListener('message', (event) => {
