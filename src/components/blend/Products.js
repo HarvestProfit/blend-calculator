@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
@@ -37,6 +38,14 @@ class Products extends Component {
         </thead>
         <tbody>
           {products}
+          <tr>
+            <td colSpan="2">Totals</td>
+            <td colSpan="1">{_.sumBy(this.props.product_totals, 'amount').toFixed(2)}</td>
+            <td colSpan="1">{_.sumBy(this.props.product_totals, 'nitrogen').toFixed(2)}</td>
+            <td colSpan="1">{_.sumBy(this.props.product_totals, 'phosphorous').toFixed(2)}</td>
+            <td colSpan="1">{_.sumBy(this.props.product_totals, 'potassium').toFixed(2)}</td>
+            <td colSpan="1">{_.sumBy(this.props.product_totals, 'sulfur').toFixed(2)}</td>
+          </tr>
         </tbody>
       </Table>
     )
