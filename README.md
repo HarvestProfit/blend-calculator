@@ -7,6 +7,14 @@
 [View the Blend Calculator](https://harvestprofit.github.io/blend-calculator/)
 
 ## Development
+
+You will want to have the following installed:
+- [NodeJS](https://nodejs.org/en/)
+  - Feel free to use [NVM](https://github.com/creationix/nvm) or [Nodenv (recommended)](https://github.com/nodenv/nodenv) for version management
+- [Yarn](https://yarnpkg.com/en/)
+
+After [cloning the repo on your machine](https://help.github.com/en/articles/cloning-a-repository), be sure to run `yarn install` from the project directory.
+
 In the project directory, you can run:
 
 ### `yarn start`
